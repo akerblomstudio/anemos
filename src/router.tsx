@@ -10,6 +10,8 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
+    // Accept both /page and /page/ (static hosts serve folders with a trailing slash).
+    trailingSlash: "preserve",
     // Lets Query own freshness; set caching defaults on the QueryClient, not the router.
     defaultPreloadStaleTime: 0,
   });
