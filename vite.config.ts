@@ -10,7 +10,7 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // Static export for GitHub Pages: run with STATIC_EXPORT=1.
-// BASE_PATH sets the sub-path ("/anemos/" for the project URL, "/" for a root custom domain).
+// The custom domain serves the site at its root: BASE_PATH=/.
 const isStatic = process.env["STATIC_EXPORT"] === "1";
 const base = process.env["BASE_PATH"] ?? "/";
 
@@ -24,6 +24,21 @@ l.pathname.slice(1).split('/').slice(k).join('/').replace(/&/g,'~and~')+(l.searc
 </script></head><body></body></html>`;
 
 const staticRoutes = ["/", "/program", "/skapa-med-oss", "/om-anemos", "/kontakt", "/integritet"];
+
+// Every public page is rendered to its own HTML file. The existing GitHub Pages
+// 404 redirect restores other URLs through index.html, so no SPA shell is needed.
+// SPA mode schedules maskPath as a prerender request; /__shell is not a route.
+export const staticStartOptions = {
+  server: { entry: "server" },
+  spa: { enabled: false },
+  pages: staticRoutes.map((path) => ({ path })),
+  prerender: {
+    enabled: true,
+    autoStaticPathsDiscovery: false,
+    crawlLinks: false,
+    failOnError: true,
+  },
+};
 
 export default defineConfig(
   isStatic
@@ -42,12 +57,7 @@ export default defineConfig(
             },
           ],
         },
-        tanstackStart: {
-          server: { entry: "server" },
-          spa: { enabled: true, maskPath: "/__shell", prerender: { outputPath: "/404" } },
-          pages: staticRoutes.map((path) => ({ path })),
-          prerender: { enabled: true, autoStaticPathsDiscovery: false },
-        },
+        tanstackStart: staticStartOptions,
       }
     : {
         tanstackStart: {

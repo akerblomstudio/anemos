@@ -26,6 +26,13 @@ jobs:
         env:
           # Served from the root of the custom domain anemos.se (see public/CNAME).
           BASE_PATH: /
+      - name: Verify static output before uploading
+        run: |
+          test "$(cat dist/client/CNAME)" = "anemos.se"
+          test -s dist/client/404.html
+          for page in index.html program/index.html skapa-med-oss/index.html om-anemos/index.html kontakt/index.html integritet/index.html; do
+            test -s "dist/client/$page"
+          done
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

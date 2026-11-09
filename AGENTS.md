@@ -32,3 +32,4 @@ use the editor.
 - Site content (events, association info) lives in src/content/*; pages only render it. Why: editors update content without touching layout.
 - Demo events carry `demo: true` and are shown only in dev; forms never show "sent" while `site.formsConnected` is false. Why: no fabricated content or false confirmations publicly.
 - GitHub Pages export is `STATIC_EXPORT=1 BASE_PATH=/ (site lives at root of anemos.se) bun run build:static` -> deploy `dist/client`; normal builds stay unchanged. Add every new static route to `staticRoutes` in vite.config.ts. Why: the site must also run as plain static files.
+- Static export prerenders actual public routes with SPA mode disabled and strict prerender failures; the existing 404 redirect restores unenumerated URLs through the homepage. Why: SPA mask paths are requested URLs, not automatically registered routes, and must not overwrite the redirect artifact.
