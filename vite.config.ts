@@ -11,8 +11,8 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // Static export for GitHub Pages: run with STATIC_EXPORT=1.
 // BASE_PATH sets the sub-path ("/anemos/" for the project URL, "/" for a root custom domain).
-const isStatic = process.env.STATIC_EXPORT === "1";
-const base = process.env.BASE_PATH ?? "/";
+const isStatic = process.env["STATIC_EXPORT"] === "1";
+const base = process.env["BASE_PATH"] ?? "/";
 
 // GitHub Pages serves 404.html for unknown URLs (e.g. /program/<slug>). It redirects to the
 // site root as ?/<path>; a script in __root.tsx restores the real URL before the app starts.
