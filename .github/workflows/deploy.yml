@@ -24,8 +24,8 @@ jobs:
       - name: Build static site
         run: bun run build:static
         env:
-          # Use "/" when the site is served from the root of a custom domain.
-          BASE_PATH: /anemos/
+          # Served from the root of the custom domain anemos.se (see public/CNAME).
+          BASE_PATH: /
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
