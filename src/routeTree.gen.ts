@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as IntegritetRouteImport } from './routes/integritet'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as OmAnemosRouteImport } from './routes/om-anemos'
+import { Route as SkapaMedOssRouteImport } from './routes/skapa-med-oss'
+import { Route as ProgramIndexRouteImport } from './routes/program.index'
+import { Route as ProgramSlugRouteImport } from './routes/program.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IntegritetRoute = IntegritetRouteImport.update({
+  id: '/integritet',
+  path: '/integritet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OmAnemosRoute = OmAnemosRouteImport.update({
+  id: '/om-anemos',
+  path: '/om-anemos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkapaMedOssRoute = SkapaMedOssRouteImport.update({
+  id: '/skapa-med-oss',
+  path: '/skapa-med-oss',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramIndexRoute = ProgramIndexRouteImport.update({
+  id: '/program/',
+  path: '/program/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramSlugRoute = ProgramSlugRouteImport.update({
+  id: '/program/$slug',
+  path: '/program/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/integritet': typeof IntegritetRoute
+  '/kontakt': typeof KontaktRoute
+  '/om-anemos': typeof OmAnemosRoute
+  '/skapa-med-oss': typeof SkapaMedOssRoute
+  '/program/$slug': typeof ProgramSlugRoute
+  '/program/': typeof ProgramIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/integritet': typeof IntegritetRoute
+  '/kontakt': typeof KontaktRoute
+  '/om-anemos': typeof OmAnemosRoute
+  '/skapa-med-oss': typeof SkapaMedOssRoute
+  '/program/$slug': typeof ProgramSlugRoute
+  '/program': typeof ProgramIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/integritet': typeof IntegritetRoute
+  '/kontakt': typeof KontaktRoute
+  '/om-anemos': typeof OmAnemosRoute
+  '/skapa-med-oss': typeof SkapaMedOssRoute
+  '/program/$slug': typeof ProgramSlugRoute
+  '/program/': typeof ProgramIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/integritet'
+    | '/kontakt'
+    | '/om-anemos'
+    | '/skapa-med-oss'
+    | '/program/$slug'
+    | '/program/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/integritet'
+    | '/kontakt'
+    | '/om-anemos'
+    | '/skapa-med-oss'
+    | '/program/$slug'
+    | '/program'
+  id:
+    | '__root__'
+    | '/'
+    | '/integritet'
+    | '/kontakt'
+    | '/om-anemos'
+    | '/skapa-med-oss'
+    | '/program/$slug'
+    | '/program/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  IntegritetRoute: typeof IntegritetRoute
+  KontaktRoute: typeof KontaktRoute
+  OmAnemosRoute: typeof OmAnemosRoute
+  SkapaMedOssRoute: typeof SkapaMedOssRoute
+  ProgramSlugRoute: typeof ProgramSlugRoute
+  ProgramIndexRoute: typeof ProgramIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/integritet': {
+      id: '/integritet'
+      path: '/integritet'
+      fullPath: '/integritet'
+      preLoaderRoute: typeof IntegritetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/om-anemos': {
+      id: '/om-anemos'
+      path: '/om-anemos'
+      fullPath: '/om-anemos'
+      preLoaderRoute: typeof OmAnemosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skapa-med-oss': {
+      id: '/skapa-med-oss'
+      path: '/skapa-med-oss'
+      fullPath: '/skapa-med-oss'
+      preLoaderRoute: typeof SkapaMedOssRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/program/': {
+      id: '/program/'
+      path: '/program'
+      fullPath: '/program/'
+      preLoaderRoute: typeof ProgramIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/program/$slug': {
+      id: '/program/$slug'
+      path: '/program/$slug'
+      fullPath: '/program/$slug'
+      preLoaderRoute: typeof ProgramSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  IntegritetRoute: IntegritetRoute,
+  KontaktRoute: KontaktRoute,
+  OmAnemosRoute: OmAnemosRoute,
+  SkapaMedOssRoute: SkapaMedOssRoute,
+  ProgramSlugRoute: ProgramSlugRoute,
+  ProgramIndexRoute: ProgramIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
