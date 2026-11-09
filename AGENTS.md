@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Site content (events, association info) lives in src/content/*; pages only render it. Why: editors update content without touching layout.
+- Demo events carry `demo: true` and are shown only in dev; forms never show "sent" while `site.formsConnected` is false. Why: no fabricated content or false confirmations publicly.

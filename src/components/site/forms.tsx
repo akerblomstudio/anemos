@@ -4,7 +4,7 @@ import { btn, DevNote } from "./ui";
 
 const field = "mt-2 block w-full min-h-12 rounded-sm border-2 border-input bg-card px-4 py-3 text-base focus:border-charcoal";
 
-export function Field({ id, label, optional, error, children }: { id: string; label: string; optional?: boolean; error?: string; children: ReactNode }) {
+export function Field({ id, label, optional, error, children }: { id: string; label: string; optional?: boolean | undefined; error?: string | undefined; children: ReactNode }) {
   return (
     <div>
       <label htmlFor={id} className="font-semibold">
@@ -16,7 +16,7 @@ export function Field({ id, label, optional, error, children }: { id: string; la
   );
 }
 
-type Errors = Record<string, string>;
+type Errors = { [k: string]: string | undefined; namn?: string; epost?: string; typ?: string; beskrivning?: string; amne?: string; meddelande?: string };
 
 function useForm(required: Record<string, string>) {
   const [errors, setErrors] = useState<Errors>({});
