@@ -2,7 +2,11 @@
 export const site = {
   name: "Anemos",
   city: "Malmö",
-  email: "" as string, // t.ex. "hej@..." när den är bekräftad
+  email: "info@anemos.se" as string,
+  emails: [
+    { label: "Allmänna frågor", address: "info@anemos.se" },
+    { label: "Produktion", address: "produktion@anemos.se" },
+  ],
   social: [] as { label: string; url: string }[],
   membership: {
     confirmed: false, // sätt true och fyll i villkor när medlemsprocessen är fastställd

@@ -85,7 +85,9 @@ export function Footer() {
           </ul>
         </nav>
         <div className="space-y-3 md:col-span-4">
-          {site.email && <p><a className="hover:text-sage" href={`mailto:${site.email}`}>{site.email}</a></p>}
+          {site.emails.map((e) => (
+            <p key={e.address}><a className="hover:text-sage" href={`mailto:${e.address}`}>{e.address}</a></p>
+          ))}
           {site.social.map((s) => (
             <p key={s.url}><a className="hover:text-sage" href={s.url}>{s.label}</a></p>
           ))}
