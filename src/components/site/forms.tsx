@@ -2,7 +2,7 @@ import { useState, type FormEvent, type ReactNode } from "react";
 import { site } from "@/content/site";
 import { btn, DevNote } from "./ui";
 
-const field = "mt-2 block w-full min-h-12 rounded-sm border-2 border-input bg-card px-4 py-3 text-base focus:border-charcoal";
+const field = "mt-2 block w-full min-h-12 rounded-sm border-2 border-input bg-card px-4 py-3 text-base focus:border-midnight";
 
 export function Field({ id, label, optional, error, children }: { id: string; label: string; optional?: boolean | undefined; error?: string | undefined; children: ReactNode }) {
   return (
@@ -72,8 +72,8 @@ export function IdeaForm() {
         <legend className="font-semibold">Vad gäller din idé eller förfrågan?</legend>
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
           {requestTypes.map((t) => (
-            <label key={t} className="flex min-h-12 cursor-pointer items-center gap-3 rounded-sm border-2 border-input bg-card px-4 py-2 has-[:checked]:border-charcoal has-[:checked]:bg-sage">
-              <input type="radio" name="typ" value={t} className="h-4 w-4 accent-charcoal" /> {t}
+            <label key={t} className="flex min-h-12 cursor-pointer items-center gap-3 rounded-sm border-2 border-input bg-card px-4 py-2 has-[:checked]:border-midnight has-[:checked]:bg-sage">
+              <input type="radio" name="typ" value={t} className="h-4 w-4 accent-midnight" /> {t}
             </label>
           ))}
         </div>

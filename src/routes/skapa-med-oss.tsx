@@ -19,12 +19,12 @@ const areas = [
     lead: "Berätta vad du behöver för ditt skapande, så undersöker vi möjligheterna.",
   },
   {
-    n: "B", title: "Produktion & projekt", tone: "bg-card",
+    n: "B", title: "Produktion & projekt", tone: "bg-pink",
     items: ["Kulturproduktion och arrangemang", "Gemensamma kulturprojekt", "Projektutveckling och samordning", "Projektledning och produktionsstöd", "Administration, rådgivning och praktiskt stöd", "Digitala lösningar som stödjer ett kulturprojekt"],
     lead: "Vill du genomföra ett arrangemang eller utveckla ett kulturprojekt? Berätta om idén och vilket stöd eller samarbete du söker.",
   },
   {
-    n: "C", title: "Utbildning & kunskapsutbyte", tone: "bg-charcoal text-bone",
+    n: "C", title: "Utbildning & kunskapsutbyte", tone: "bg-midnight text-ivory",
     items: ["Workshops", "Utbildningar", "Erfarenhetsutbyte", "Lärande i gemensamma kulturprojekt", "Samarbeten med studieförbund och andra kulturaktörer"],
     lead: "Har du något att lära ut, eller vill du lära dig något tillsammans med andra? Föreslå en workshop eller ett utbyte.",
   },
@@ -40,7 +40,7 @@ function Skapa() {
 
       <section aria-label="Områden" className="container-page mt-16 space-y-6">
         {areas.map((a, i) => (
-          <div key={a.n} className={`${a.tone} grid gap-8 border-2 border-charcoal p-8 md:grid-cols-12 md:p-12 ${i === 1 ? "md:ml-16" : i === 2 ? "md:mr-16" : ""}`}>
+          <div key={a.n} className={`${a.tone} grid gap-8 border-2 border-midnight p-8 md:grid-cols-12 md:p-12 ${i === 1 ? "md:ml-16" : i === 2 ? "md:mr-16" : ""}`}>
             <div className="md:col-span-5">
               <p className="font-display text-7xl font-extrabold opacity-40" aria-hidden>{a.n}</p>
               <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">{a.title}</h2>

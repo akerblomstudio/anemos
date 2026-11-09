@@ -21,7 +21,7 @@ function Program() {
     .filter((e) => cat === "alla" || e.category === cat);
   if (tab === "tidigare") list.reverse();
 
-  const chip = (active: boolean) => cn("min-h-11 rounded-full border-2 border-charcoal px-4 text-sm font-semibold", active ? "bg-charcoal text-bone" : "hover:bg-sage");
+  const chip = (active: boolean) => cn("min-h-11 rounded-full border-2 border-midnight px-4 text-sm font-semibold", active ? "bg-midnight text-ivory" : "hover:bg-sage");
 
   return (
     <>

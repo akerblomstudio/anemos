@@ -47,10 +47,10 @@ function Index() {
       </section>
 
       <section className="container-page grid gap-0 py-16 md:grid-cols-2">
-        <div className="bg-charcoal p-10 text-bone md:p-14">
+        <div className="bg-midnight p-10 text-ivory md:p-14">
           <p className="eyebrow text-sage">01</p>
           <h2 className="mt-4 text-4xl font-extrabold md:text-6xl">Upplev kultur</h2>
-          <p className="mt-6 max-w-md text-bone/85">Livemusik, scenkonst, framträdanden och andra kulturella möten – för dig som vill lyssna, se, delta och vara med.</p>
+          <p className="mt-6 max-w-md text-ivory/85">Livemusik, scenkonst, framträdanden och andra kulturella möten – för dig som vill lyssna, se, delta och vara med.</p>
           <Link to="/program" className="mt-8 inline-block font-semibold text-sage underline underline-offset-4">Utforska programmet</Link>
         </div>
         <div className="bg-sage p-10 md:mt-16 md:p-14">
@@ -77,7 +77,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="border-y-2 border-charcoal">
+      <section className="border-y-2 border-midnight">
         <div className="container-page grid gap-8 py-20 md:grid-cols-12">
           <h2 className="text-4xl font-extrabold md:col-span-4 md:text-5xl">Om Anemos</h2>
           <div className="md:col-span-7 md:col-start-6">

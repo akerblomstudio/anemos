@@ -64,9 +64,10 @@
   --color-chart-5: var(--chart-5);
   --color-sage: var(--sage);
   --color-sage-deep: var(--sage-deep);
-  --color-charcoal: var(--charcoal);
-  --color-bone: var(--bone);
+  --color-midnight: var(--midnight);
+  --color-ivory: var(--ivory);
   --color-coral: var(--coral);
+  --color-pink: var(--pink);
   --font-display: "Bricolage Grotesque", ui-sans-serif, sans-serif;
   --font-sans: "Public Sans", ui-sans-serif, sans-serif;
   --color-sidebar: var(--sidebar);
@@ -81,33 +82,35 @@
 
 :root {
   --radius: 0.25rem;
-  /* Anemos palette: salvia #9CAF88, kol #3A3A38, benvit #F4EFE6, korall #F2694B */
-  --sage: oklch(0.7216 0.0631 128.6);
-  --sage-deep: oklch(0.52 0.06 128.6);
-  --charcoal: oklch(0.3363 0.0042 106.6);
-  --bone: oklch(0.9524 0.0136 80.7);
-  --coral: oklch(0.6766 0.1749 35.4);
-  --background: var(--bone);
-  --foreground: var(--charcoal);
-  --card: oklch(0.975 0.009 80.7);
-  --card-foreground: var(--charcoal);
-  --popover: var(--bone);
-  --popover-foreground: var(--charcoal);
+  /* Anemos palette: Sage #9CAF88, Midnight #19191B, Ivory #F4EFE6, Coral #F2694B, Pink #E88BAF */
+  --sage: oklch(0.7288 0.0585 128.9);
+  --sage-deep: oklch(0.47 0.055 128.9); /* darkened sage for text on Ivory, >= 4.5:1 */
+  --midnight: oklch(0.2143 0.0039 286.1);
+  --ivory: oklch(0.9535 0.0131 82.4);
+  --coral: oklch(0.6849 0.1753 33.9);
+  --pink: oklch(0.7444 0.1204 355.7);
+  --background: var(--ivory);
+  --foreground: var(--midnight);
+  --card: oklch(0.975 0.009 82.4);
+  --card-foreground: var(--midnight);
+  --popover: var(--ivory);
+  --popover-foreground: var(--midnight);
   --primary: var(--sage);
-  --primary-foreground: var(--charcoal);
-  --secondary: var(--charcoal);
-  --secondary-foreground: var(--bone);
-  --muted: oklch(0.92 0.016 80.7);
-  --muted-foreground: oklch(0.43 0.006 106.6);
+  --primary-foreground: var(--midnight);
+  --secondary: var(--midnight);
+  --secondary-foreground: var(--ivory);
+  --muted: oklch(0.92 0.016 82.4);
+  --muted-foreground: oklch(0.38 0.005 286.1);
   --accent: var(--coral);
-  --accent-foreground: var(--charcoal);
+  --highlight: var(--pink);
+  --accent-foreground: var(--midnight);
   --destructive: oklch(0.5 0.19 27);
-  --destructive-foreground: var(--bone);
-  --border: oklch(0.3363 0.0042 106.6 / 18%);
-  --input: oklch(0.3363 0.0042 106.6 / 35%);
-  --ring: var(--charcoal);
-  --chart-1: var(--sage); --chart-2: var(--coral); --chart-3: var(--charcoal); --chart-4: var(--sage-deep); --chart-5: var(--muted);
-  --sidebar: var(--bone); --sidebar-foreground: var(--charcoal); --sidebar-primary: var(--sage); --sidebar-primary-foreground: var(--charcoal); --sidebar-accent: var(--muted); --sidebar-accent-foreground: var(--charcoal); --sidebar-border: var(--border); --sidebar-ring: var(--ring);
+  --destructive-foreground: var(--ivory);
+  --border: oklch(0.2143 0.0039 286.1 / 18%);
+  --input: oklch(0.2143 0.0039 286.1 / 45%);
+  --ring: var(--midnight);
+  --chart-1: var(--sage); --chart-2: var(--coral); --chart-3: var(--midnight); --chart-4: var(--sage-deep); --chart-5: var(--muted);
+  --sidebar: var(--ivory); --sidebar-foreground: var(--midnight); --sidebar-primary: var(--sage); --sidebar-primary-foreground: var(--midnight); --sidebar-accent: var(--muted); --sidebar-accent-foreground: var(--midnight); --sidebar-border: var(--border); --sidebar-ring: var(--ring);
 }
 
 @layer base {
@@ -124,7 +127,9 @@
 @layer base {
   body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.02; }
-  :focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; border-radius: 2px; }
+  :focus-visible { outline: 3px solid var(--midnight); outline-offset: 3px; border-radius: 2px; }
+  .bg-midnight :focus-visible, .bg-midnight:focus-visible { outline-color: var(--ivory); }
+  ::selection { background-color: var(--pink); color: var(--midnight); }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 }
 
@@ -133,7 +138,7 @@
   font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
 }
 @utility wind-line {
-  background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--charcoal) 35%, transparent) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--midnight) 35%, transparent) 1px, transparent 0);
   background-size: 14px 14px;
 }
 @utility container-page {

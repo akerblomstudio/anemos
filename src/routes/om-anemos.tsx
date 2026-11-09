@@ -44,7 +44,7 @@ function Om() {
               <p className="mt-6">Medlemsprocessen håller på att tas fram. Anmäl ditt intresse så återkommer föreningen med information.</p>
             )}
           </div>
-          <div className="bg-bone p-8 md:col-span-6 md:col-start-7">
+          <div className="bg-ivory p-8 md:col-span-6 md:col-start-7">
             <MembershipInterest />
           </div>
         </div>

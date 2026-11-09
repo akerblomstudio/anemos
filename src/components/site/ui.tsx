@@ -9,9 +9,9 @@ export const btn = cva(
   {
     variants: {
       variant: {
-        coral: "bg-coral text-charcoal hover:bg-charcoal hover:text-bone",
-        dark: "bg-charcoal text-bone hover:bg-sage hover:text-charcoal",
-        outline: "border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-bone",
+        coral: "bg-coral text-midnight hover:bg-midnight hover:text-ivory",
+        dark: "bg-midnight text-ivory hover:bg-sage hover:text-midnight",
+        outline: "border-2 border-midnight text-midnight hover:bg-midnight hover:text-ivory",
       },
     },
     defaultVariants: { variant: "dark" },
@@ -31,7 +31,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur-sm">
-      <a href="#innehall" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:bg-charcoal focus:px-4 focus:py-2 focus:text-bone">
+      <a href="#innehall" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:bg-midnight focus:px-4 focus:py-2 focus:text-ivory">
         Hoppa till innehållet
       </a>
       <div className="container-page flex h-16 items-center justify-between">
@@ -70,11 +70,11 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-charcoal text-bone">
+    <footer className="mt-24 bg-midnight text-ivory">
       <div className="container-page grid gap-12 py-16 md:grid-cols-12">
         <div className="md:col-span-5">
           <p className="font-display text-5xl font-extrabold md:text-7xl">anemos<span className="text-coral">.</span></p>
-          <p className="mt-4 max-w-sm text-bone/80">Utrymme för kultur – på scen, i skapandet och i mötet mellan människor. {site.city}.</p>
+          <p className="mt-4 max-w-sm text-ivory/80">Utrymme för kultur – på scen, i skapandet och i mötet mellan människor. {site.city}.</p>
         </div>
         <nav aria-label="Sidfot" className="md:col-span-3">
           <ul className="space-y-3">
@@ -89,7 +89,7 @@ export function Footer() {
           {site.social.map((s) => (
             <p key={s.url}><a className="hover:text-sage" href={s.url}>{s.label}</a></p>
           ))}
-          <p className="text-bone/80">Malmö</p>
+          <p className="text-ivory/80">Malmö</p>
           <p><Link to="/integritet" className="hover:text-sage">Integritet</Link></p>
         </div>
       </div>
